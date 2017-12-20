@@ -1,0 +1,11 @@
+<h1>Index of Menu Items:</h1>
+
+<% @menu_items.each do |item| %>
+  <h3><%= item.name %> <%= number_to_currency(item.price) %></h3>
+  <%= form_tag '/review', method: :post do %>
+    <input type="hidden" name="menu_item_id" value="<%= item.id %>">
+    <h3>Quantity</h3><input type="text" name="quantity">
+    <input type="Submit" value="Add To Order">
+  <% end %>
+<% end %>
+
