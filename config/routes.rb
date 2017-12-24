@@ -9,14 +9,15 @@ Rails.application.routes.draw do
   delete 'menu/:id' => 'menu_items#destroy'
 
   # Table Sessions
+  get '/' => 'sessions#new'
   get '/table' => 'sessions#new'
   post '/table' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
   # Order Review
-  get '/review' => 'carted_drones#index'
-  post '/review' => 'carted_drones#create'
-  delete '/review/:id' => 'carted_drones#destroy'
+  get '/review' => 'review#index'
+  post '/review' => 'review#create'
+  delete '/review/:id' => 'review#destroy'
 
   #Order Sent
   get '/order/new' => 'orders#new'
