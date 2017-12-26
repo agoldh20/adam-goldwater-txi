@@ -1,6 +1,12 @@
 class MenuItemsController < ApplicationController
   def index
     @menu_items = MenuItem.all
+
+    category_attribute = params[:category]
+
+    if category_attribute
+      @menu_items = Category.find_by(name: category_attribute).menu_items
+    end
   end
 
   def new

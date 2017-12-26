@@ -14,12 +14,12 @@ class ReviewOrdersController < ApplicationController
                                        quantity: params[:quantity],
                                        status: "pending"
                                        )
-    redirect_back(fallback_location: root_path)
+    redirect_to "/menu_index"
   end
 
   def destroy
     review_order = ReviewOrder.find(params[:id])
     review_order.update(status: "removed")
-    redirect_back(fallback_location: root_path)
+    redirect_to "/menu_index"
   end
 end
