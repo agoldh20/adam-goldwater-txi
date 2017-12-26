@@ -1,1 +1,7 @@
-<% @ %>
+<% @review_orders.each do |review_order| %>
+  <h2>Item: <%= review_order.menu_item.name %> Quantity: <%= review_order.quantity %>
+    <%= link_to "remove", "/review/#{review_order.id}", method: :delete %>
+  </h2>
+<% end %>
+
+<%= link_to "Order", "/orders", method: :post%>

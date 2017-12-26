@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   # Order Review
-  get '/review' => 'review#index'
-  post '/review' => 'review#create'
-  delete '/review/:id' => 'review#destroy'
+  get '/review' => 'review_orders#index'
+  post '/review' => 'review_orders#create'
+  delete '/review/:id' => 'review_orders#destroy'
 
   #Order Sent
   get '/order/new' => 'orders#new'
