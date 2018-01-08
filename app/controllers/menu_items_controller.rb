@@ -7,6 +7,7 @@ class MenuItemsController < ApplicationController
     if category_attribute
       @menu_items = Category.find_by(name: category_attribute).menu_items
     end
+
   end
 
   def new
