@@ -3,6 +3,13 @@
                  <li><a href="/menu_index/?category=<%= category.name %>"><%= category.name %></a></li>  
                 <% end %></h4>
 <h3><%= current_table && current_table.name %></h3>
+<h2>Apps</h2>
+   <% @apps.each do |app| %>
+    <h3> <a href="/menu/<%= app.id %>"> <%= app.name %> </a><%= number_to_currency(app.price) %></h3>
+   <% end %> 
+<h2>Entrees</h2>
+<h2>Sides</h2>
+<h2>Desserts</h2>
 <% @menu_items.each do |item| %>
   <h3> <a href="/menu/<%= item.id %>"> <%= item.name %> </a><%= number_to_currency(item.price) %></h3>
   <%= form_tag '/review', method: :post do %>
