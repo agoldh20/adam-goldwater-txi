@@ -1,15 +1,23 @@
 class MenuItemsController < ApplicationController
   def index
     @menu_items = MenuItem.all
-    @apps = Category.find_by(name: "App").menu_items
-    @entrees = Category.find_by(name: "Entree").menu_items
-    @sides = Category.find_by(name: "Side").menu_items
-    @desserts = Category.find_by(name: "Dessert").menu_items
 
-    @category_selected = params[:category]
+    @time_selected = params[:meal_time]
 
-    if @category_selected
-      @menu_items = Category.find_by(name: @category_selected).menu_items
+    if @time_selected
+      app_items = Category.find_by(name: "App").menu_items
+      entree_items = Category.find_by(name: "Entree").menu_items
+      side_items = Category.find_by(name: "Side").menu_items
+      dessert_items = Category.find_by(name: "Dessert").menu_items
+      @apps = app_items & @time_selected
+      @entrees = entree_items & @time_selected
+      @sides = side_items & @time_selected
+      @desserts = dessert_items & @time_selected
+    else
+      @app = Category.find_by(name: "App").menu_items
+      @entree = Category.find_by(name: "Entree").menu_items
+      @side = Category.find_by(name: "Side").menu_items
+      @dessert = Category.find_by(name: "Dessert").menu_items
     end
 
   end
