@@ -2,7 +2,7 @@ class MenuItemsController < ApplicationController
   def index
     @menu_items = MenuItem.all
 
-    @time_selected = MealTime.find_by(name: params[:meal_time]).menu_items
+    @time_selected = MealTime.find_by(name: params[:meal_time]).menu_items if params[:meal_time]
 
     app_items = Category.find_by(name: "App").menu_items
     entree_items = Category.find_by(name: "Entree").menu_items

@@ -4,4 +4,15 @@
   </h2>
 <% end %>
 
+<h3>Subtotal:<%= calculate_subtotal.to_s %></h3>
+<h3>Tax:<%= calculate_tax.to_s %></h3>
+<h3>Total:<%= calculate_total.to_s %></h3>
+
+<h3>Add Tip:</h3>
+<select>
+  <option value="table_1">10% (<%= calculate_total * 0.1 %></option>
+  <option value="table 2">15% (<%= calculate_total * 0.15 %></option>
+  <option value="table 3">20% (<%= calculate_total * 0.2 %></option>
+</select>
+
 <%= link_to "Order", "/orders", method: :post%>
